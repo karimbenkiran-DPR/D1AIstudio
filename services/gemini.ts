@@ -51,7 +51,7 @@ export async function generateImages(
   await ensureApiKey();
   
   // Re-instantiate to capture potentially new API key
-  const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
+  const ai = new GoogleGenAI({ apiKey: import.meta.env.VITE_API_KEY });
   
   const parts: Part[] = [];
   
@@ -117,7 +117,7 @@ export async function refineImage(
   resolution?: Resolution
 ): Promise<string | null> {
   await ensureApiKey();
-  const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
+  const ai = new GoogleGenAI({ apiKey: import.meta.env.VITE_API_KEY });
 
   // Parse data URL to get pure base64 and mimeType
   const [header, data] = base64Image.split(',');
@@ -178,7 +178,7 @@ export async function editImage(
   sourceImage: File,
   referenceImage?: File
 ): Promise<string | null> {
-  const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
+  const ai = new GoogleGenAI({ apiKey: import.meta.env.VITE_API_KEY });
 
   const parts: Part[] = [];
   parts.push(await fileToPart(sourceImage));
@@ -218,7 +218,7 @@ export async function generateAngleVariation(
   userPrompt?: string
 ): Promise<string | null> {
   await ensureApiKey();
-  const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
+  const ai = new GoogleGenAI({ apiKey: import.meta.env.VITE_API_KEY });
 
   const parts: Part[] = [];
   parts.push(await fileToPart(sourceImage));
