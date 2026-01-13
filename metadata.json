@@ -1,0 +1,5 @@
+{
+  "name": "DPR AI Studio",
+  "description": "A powerful image generation and editing suite using Gemini 3 Pro and Gemini 2.5 Flash. Generate high-resolution images with references or edit existing photos with natural language.",
+  "requestFramePermissions": []
+}
